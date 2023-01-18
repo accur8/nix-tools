@@ -13,7 +13,7 @@
   sbtDependenciesFn,
   jvmArgs ? [],
   appArgs ? [],
-  webappExplode ? true,
+  webappExplode ? false,
   javaVersion ? "11",
 }:
   
