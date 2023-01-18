@@ -1,0 +1,4 @@
+#!/bin/bash
+
+exec _out_/bin/_name_j -cp _out_/lib/*:. _args_ "$@"
+
