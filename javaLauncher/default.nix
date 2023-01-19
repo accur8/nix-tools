@@ -4,7 +4,6 @@
   jdk8,
   jdk11,
   jdk17,
-  pkgs,
   stdenv,
   unzip,
 }: {
@@ -28,8 +27,8 @@
     fetcherFn = 
       dep: (
         fetchurl {
-            url = dep.url;
-           sha256 = dep.sha256;
+          url = dep.url;
+          sha256 = dep.sha256;
         }
       );
 
@@ -79,7 +78,7 @@
         LAUNCHER=$out/bin/${name}
 
         # setup launcher script
-        cp ./java-launcher-cli-template $LAUNCHER
+        cp ./java-launcher-template $LAUNCHER
         chmod +x $LAUNCHER
         substituteInPlace $LAUNCHER \
           --replace _name_ ${name} \
@@ -88,15 +87,3 @@
 
       '' + webappExploder;
     }
-
-    
-#   pkgs.writeShellApplication 
-#     {
-#       name = "runit.sh";
-#       text = ''
-#     #!/bin/sh
-#     echo hello world
-#     ${jdk}/bin/java -cp ${classpathBuilder}/lib/* foo.Bar
-# '';
-#       runtimeInputs = [classpathBuilder];
-#     }
